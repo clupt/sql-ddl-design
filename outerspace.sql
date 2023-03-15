@@ -13,20 +13,23 @@ CREATE TABLE moons(
 
 INSERT into stars (star, temp)
     VALUES
-    ('Proxima Centauri', 3042),
-    ('Gliese 876', 3192),
-    ('The Sun', 5800);
+        ('Proxima Centauri', 3042),
+        ('Gliese 876', 3192),
+        ('The Sun', 5800);
 
+INSERT into planets (planet_name, orbital_period, star_name)
+    VALUES
+        ('Earth', 1.00, 'The Sun'),
+        ('Mars', 1.882, 'The Sun'),
+        ('Venus', 0.62, 'The Sun'),
+        ('Proxima Centauri b', 0.03, 'Proxima Centauri'),
+        ('Gliese 876 b', 0.236, 'Gliese 876');
 
-INSERT into planets (planet_name, orbital_period, star_name) VALUES ('Earth', 1.00, 'The Sun');
-INSERT into planets (planet_name, orbital_period, star_name) VALUES ('Mars', 1.882, 'The Sun');
-INSERT into planets (planet_name, orbital_period, star_name) VALUES ('Venus', 0.62, 'The Sun');
-INSERT into planets (planet_name, orbital_period, star_name) VALUES ('Proxima Centauri b', 0.03, 'Proxima Centauri');
-INSERT into planets (planet_name, orbital_period, star_name) VALUES ('Gliese 876 b', 0.236, 'Gliese 876');
-
-INSERT into moons (moon, planet) VALUES ('The Moon', 'Earth');
-INSERT into moons (moon, planet) VALUES ('Phobos', 'Mars');
-INSERT into moons (moon, planet) VALUES ('Deimos', 'Mars');
+INSERT into moons (moon, planet)
+    VALUES
+        ('The Moon', 'Earth'),
+        ('Phobos', 'Mars'),
+        ('Deimos', 'Mars');
 
 SELECT p.planet_name as planet, s.star, COUNT(m.moon) as moon_count
     FROM planets as p
